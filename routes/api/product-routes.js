@@ -31,10 +31,10 @@ router.get('/:id', async (req, res) => {
   } catch(err) {
     res.status(500).json(err)
   };
-  // find a single product by its `id`
-  // be sure to include its associated Category and Tag data
 });
 
+
+//I believe there is a bug in the post/put route
 // create new product
 router.post('/', (req, res) => {
   /* req.body should look like this...
