@@ -17,7 +17,6 @@ router.get('/', async (req, res) => {
 
 // get one product
 router.get('/:id', async (req, res) => {
-  //Talk about whether or not a single GET function for all similar routes.
   try{
     const singleProductData = await Product.findByPk(req.params.id, {
       include: [{model: Category}, {model: Tag, through: ProductTag}]
@@ -109,11 +108,10 @@ router.put('/:id', (req, res) => {
       return res.json(product);
     })
     .catch((err) => {
-      // console.log(err);
       res.status(400).json(err);
     });
 });
-
+//This deletes a product
 router.delete('/:id', async (req, res) => {
   try{
     const deletedProduct = await Product.destroy({
